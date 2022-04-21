@@ -1,0 +1,261 @@
+<html>
+	<head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+      <script>
+			function validate()
+			{
+				//First name constraints
+				//for not null
+				if (document.getElementById("firstname").value == "") 
+				{
+					document.getElementById("fnm").innerHTML="<b><center><font color=red>Please enter your First Name!</font></center></b>";
+					document.r_form.f_name.focus();
+					return false;
+				}
+				//for alphabets
+				if (!isNaN(document.r_form.f_name.value)) 
+				{
+					document.getElementById("fnm").innerHTML="<b><center><font color=red>Please enter correct First Name!</font></center></b>";
+					document.r_form.f_name.focus();
+					return false;
+				}
+				//last name constraints
+				//for not null
+				if (document.r_form.l_name.value == "") {
+					alert("Please enter your Last Name!");
+					document.r_form.l_name.focus();
+					return false;
+				}
+				//for alphabets
+				if (!isNaN(document.r_form.l_name.value)) 
+				{
+					alert("Please enter your Last Name in Alphabets!");
+					document.r_form.l_name.focus();
+					return false;
+				}
+				//Date of birth constraints
+				//select day
+				if (document.r_form.day.value == "-1") 
+				{
+					alert("Please select day!");
+					return false;
+				}
+				//select month
+				if (document.r_form.month.value == "-1") 
+				{
+					alert("Please select month!");
+					return false;
+				}
+				//select year
+				if (document.r_form.year.value == "-1") 
+				{
+					alert("Please select year!");
+					return false;
+				}
+				
+				//email id constraints
+				//position of "@" and "." 
+				var emailid = document.r_form.email.value;
+				atpos = emailid.indexOf("@");
+				dotpos = emailid.lastIndexOf(".");
+				if (emailid == "" || atpos < 1 || (dotpos - atpos < 2)) 
+				{
+					alert("Please enter correct email ID")
+					document.r_form.email.focus();
+					return false;
+				}
+				// mobile no constraints
+				if (document.getElementById("mobileno").value == "") 
+				{
+					
+					document.getElementById("mob").innerHTML="<b><center><font color=red>Enter mobile no!</font></center></b>";
+					document.r_form.mobno.focus();
+					return false;
+				}
+				//for only 10 number
+				if (isNaN(document.r_form.mobno.value) || document.r_form.mobno.value.length != 10) 
+				{
+					alert("Please provide 10 digit no.");
+					document.r_form.mobno.focus();
+					return false;
+				}
+				//captcha question contraints
+				if (document.r_form.question.value == "-1") 
+				{
+					alert("Please select one option!");
+					return false;
+				}
+				return (true);	
+			}
+		
+       </script>
+    </head>
+   <body>
+		<form name="r_form" onsubmit="return(validate());" method="post">
+		<table cellpadding="10" width="50%" bgcolor="grey" align="center" cellspacing="3">
+				<tbody><tr>
+					<td colspan="3">
+						<center><font size="6"><font color="white"><b>Registration Form</b></font></center>
+					</td>
+				</tr>
+				<tr></tr>
+				<tr></tr>
+				<tr>
+					<td><b><font size="4">Name </font></b></td>
+				</tr>
+				<tr>
+					<td>FirstName</td>
+					<td>
+						<input type="text" name="f_name" id="firstname" size="20">
+						<span id="fnm"></span>
+					</td>
+				
+				
+					<td>LastName</td>
+					<td>
+						<input type="text" name="l_name" id="lastname" size="20">
+					</td>
+				</tr>
+				<tr></tr>
+				<tr></tr>
+				<tr></tr>
+				<tr></tr>
+				</table>
+				<table cellpadding="5" width="50%" bgcolor="grey" align="center" cellspacing="3">
+				
+				<tr>
+					<td><font size="4"><b>Date of Birth</font></b></td> 
+				</tr>
+				<tr>
+					<td>Day
+						<select name="day" id="dt">
+							<option value="-1" selected=""> </option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">31</option>
+						</select>
+					
+					Month
+					
+						<select name="month" id="mn">
+							<option value="-1" selected=""> </option>
+							<option value="Jan">January</option>
+							<option value="feb">February</option>
+							<option value="Mar">March</option>
+							<option value="apr">April</option>
+							<option value="may">May</option>
+							<option value="jun">June</option>
+							<option value="jul">July</option>
+							<option value="aug">Agust</option>
+							<option value="sep">September</option>
+							<option value="auc">Auctober</option>
+							<option value="nov">November</option>
+							<option value="dec">December</option>
+						</select>
+					
+					Year
+						<select name="year" id="yr">
+							<option value="-1" selected=""> </option>
+							<option value="2002">2002</option>
+							<option value="2001">2001</option>
+							<option value="2000">2000</option>
+							<option value="1999">1999</option>
+							<option value="1998">1998</option>
+							<option value="1997">1997</option>
+							<option value="1996">1996</option>
+							<option value="1995">1995</option>
+							<option value="1994">1994</option>
+						</select>
+					</td>
+				</tr>
+				<tr></tr>
+				<tr></tr>
+				<tr></tr>
+				<tr></tr>
+				<tr>
+					<td><font size="4"><b>Email Id</font></b></td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" name="email" id="e_id" size="30">
+					</td>
+				</tr>
+				<tr></tr>
+				<tr></tr>
+				<tr></tr>
+				<tr></tr>
+
+				<tr>
+					<td><font size="4"><b>Mobile No</font></b></td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" name="mobno" id="mobileno" size="30">
+						<span id="mob"></span>
+					</td>
+				</tr>
+				<tr></tr>
+				<tr></tr>
+				<tr></tr>
+				<tr></tr>
+				<tr>
+					<td><font size="4"><b>Will you be running or walking?</font><b></td>
+				</tr>
+				<tr>
+					<td>
+						
+						<select name="question" id="que" width="20">
+							<option value="-1" selected="">select your answer </option>
+							<option value="running">running</option>
+							<option value="walking">walking</option>
+						</select>
+						
+					</td>
+				</tr>
+				<tr></tr>
+				<tr></tr>
+				<tr></tr>
+				<tr></tr>
+				<tr>
+					<td>
+						<input type="reset">
+					</td>
+					<td colspan="2">
+						<input type="submit" value="Submit" onclick="validate()">
+					</td>
+				</tr>
+				<tr></tr>
+				<tr></tr>
+				<tr></tr>
+				<tr></tr>
+           </tbody></table>
+       </form>
+    
+</body></html>
